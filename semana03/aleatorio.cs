@@ -4,22 +4,26 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Olá, Mundo! Este é o Projeto Exercicio3.");
+        Console.WriteLine("Olá, Mundo! Este é o Projeto Exercicio3 com números aleatórios.");
 
-        // 1. Pede o número mágico uma única vez no início
-        Console.Write("Qual é o número mágico: ");
-        int numeroMagico = int.Parse(Console.ReadLine());
+        // Instancia a classe Random para gerar números aleatórios
+        Random random = new Random();
+
+        // Gera um número aleatório entre 1 e 100 (o limite superior 101 é exclusivo)
+        int numeroMagico = random.Next(1, 101);
+
+        Console.WriteLine("O número mágico foi gerado automaticamente! Tente adivinhar entre 1 e 100.");
 
         // Inicializamos o palpite com um valor inválido para garantir que o loop comece
         int palpite = -1; 
 
-        // 2. O loop continua até que o palpite seja IGUAL ao número mágico
+        // O loop continua até que o palpite seja IGUAL ao número mágico
         while (palpite != numeroMagico)
         {
             Console.Write("Qual é o seu palpite? ");
             palpite = int.Parse(Console.ReadLine());
 
-            // 3. Verifica a tentativa
+            // Verifica a tentativa
             if (palpite < numeroMagico)
             { 
                 Console.WriteLine("Mais alto!"); 
