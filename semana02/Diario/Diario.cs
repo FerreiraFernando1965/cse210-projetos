@@ -12,7 +12,7 @@ public class Diario
     public void ExibirTodos()
 
     {
-        
+       Console.WriteLine("Olá, Mundo! Este é o Projeto Diario do Sertão.");  
     }
         
     public void SalvarNoArquivo(string arquivo)
