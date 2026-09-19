@@ -1,12 +1,4 @@
-public class Registro
+namespace DiarioPessoal
 {
-    public string _data;
-    public string _pergunta;
-    public string _resposta;
-
-    public void exibir()
-
-    {
-        
-    }
+    // Este arquivo foi mantido vazio para evitar duplicação de classes com Program.cs.
 }

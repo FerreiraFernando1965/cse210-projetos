@@ -1,32 +1,4 @@
-public class Diario
+namespace DiarioPessoal
 {
-    public List<Registro>_registros = new List<Registro>();
-
-    public void adicionarRegistro(Registro novoRegistro)
-
-    {
-        
-    }
-
-
-    public void ExibirTodos()
-
-    {
-       Console.WriteLine("Este é o Projeto Diario do Sertão.");  
-    }
-        
-    public void SalvarNoArquivo(string arquivo)
-
-    {
-        
-    }
-
-    
-    public void CarregarDoArquivo(string arquivo)
-
-    {
-    
-    }
-  
- 
-}    
+    // Este arquivo foi mantido vazio para evitar duplicação de classes com Program.cs.
+}
