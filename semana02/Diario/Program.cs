@@ -251,7 +251,7 @@ namespace DiarioPessoal
                         Console.Write("> ");
                         string resposta = Console.ReadLine();
 
-                        Console.Write("Qual o seu humor/sentimento de hoje? (ex: Feliz, Produtivo, Cansado): ");
+                        Console.Write("Qual o seu humor/sentimento de hoje? (ex: Feliz, triste, animado, Cansado): ");
                         string humor = Console.ReadLine();
 
                         Registro novoRegistro = new Registro(pergunta, resposta, humor);
