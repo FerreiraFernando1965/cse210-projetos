@@ -9,12 +9,10 @@ namespace MemorizadorDeEscrituras
     {
         static void Main(string[] args)
         {
-            Program2.Executar();
+            Program.Executar();
         }
-    }
 
-    class Program2
-    {
+       
         public static void Executar()
         {
             Referencia referencia = new Referencia("Provérbios", 3, 5, 6);
@@ -27,8 +25,8 @@ namespace MemorizadorDeEscrituras
             Console.WriteLine("1. Modo Normal (Esconder palavras aos poucos)");
             Console.WriteLine("2. Modo Inverso (Start oculto e revelar palavras)");
             Console.Write("\nEscolha o modo (1 ou 2): ");
-            string modoOpcao = Console.ReadLine()?.Trim();
 
+            string modoOpcao = Console.ReadLine()?.Trim();
             bool modoInverso = modoOpcao == "2";
 
             if (modoInverso)
@@ -50,6 +48,7 @@ namespace MemorizadorDeEscrituras
 
                 string acaoTexto = modoInverso ? "revelar" : "esconder";
                 Console.Write($"Pressione ENTER para {acaoTexto} palavras ou digite 'sair' para encerrar: ");
+                
                 string entrada = Console.ReadLine()?.Trim().ToLower();
 
                 if (entrada == "sair")
@@ -94,8 +93,8 @@ namespace MemorizadorDeEscrituras
 
         public string ObterTextoFormatado()
         {
-            return _versiculoInicial == _versiculoFinal
-                ? $"{_livro} {_capitulo}:{_versiculoInicial}"
+            return _versiculoInicial == _versiculoFinal 
+                ? $"{_livro} {_capitulo}:{_versiculoInicial}" 
                 : $"{_livro} {_capitulo}:{_versiculoInicial}-{_versiculoFinal}";
         }
     }
@@ -124,7 +123,6 @@ namespace MemorizadorDeEscrituras
             {
                 caracteresOcultos[i] = char.IsLetterOrDigit(_texto[i]) ? '_' : _texto[i];
             }
-
             return new string(caracteresOcultos);
         }
     }
