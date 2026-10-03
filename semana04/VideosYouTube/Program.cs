@@ -1,45 +1,65 @@
 using System;
 using System.Collections.Generic;
-
 public class Comentario
 {
-    private string _nome;
-    private string _texto;
+    private string autor;
+    private string texto;
 
-    public Comentario(string nome, string texto)
+    public Comentario(string autor, string texto)
     {
-        _nome = nome;
-        _texto = texto;
+        this.autor = autor;
+        this.texto = texto;
+    }
+
+    public string GetAutor()
+    {
+        return autor;
+    }
+
+    public string GetTexto()
+    {
+        return texto;
     }
 }
 
 public class Video
 {
-    private string _titulo;
-    private string _autor;
-    private int _duracao; // em segundos
-    private List<Comentario> _comentario;
+    private string titulo;
+    private string autor;
+    private int duracao;
+    private List<Comentario> comentarios;
 
-    public Video(string titulo,string autor, int duracao)
+    public Video(string titulo, string autor, int duracao)
     {
-        _autor = autor;
-        _duracao = duracao;
-        _comentario = new List<Comentario>();
-    }
-
-    public string GetAutor()
-    {
-        return _autor;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.duracao = duracao;
+        comentarios = new List<Comentario>();
     }
 
     public void AdicionarComentario(Comentario comentario)
     {
-        _comentario.Add(comentario);
+        comentarios.Add(comentario);
+    }
+
+    public string GetTitulo()
+    {
+        return titulo;
+    }
+
+    public string GetAutor()
+    {
+        return autor;
+    }
+
+    public int GetDuracao()
+    {
+        return duracao;
     }
 
     public int NumComentario()
     {
-        return _comentario.Count;
+        return comentarios.Count;
     }
 }
 
@@ -50,9 +70,9 @@ public class Program
         // ==========================================
         // VÍDEO 1
         // ==========================================
-        Video video1 = new Video("Que sabor","Concy Pizzaz", 450);
+        Video video1 = new Video("Que sabor", "Concy Pizzaz", 450);
         video1.AdicionarComentario(new Comentario("Godofredo", "Ótima apresentação das pizzas!"));
-        video1.AdicionarComentario(new Comentario("Genoveva", "Deu água na boca só de ver as pizzas"));
+        video1.AdicionarComentario(new Comentario("Genoveva", "Deu água na boca só de ver as imagens!"));
         video1.AdicionarComentario(new Comentario("Epaminondas", "Preciso conferir pessoalmente! Que delícia!."));
 
         // ==========================================
@@ -67,7 +87,7 @@ public class Program
         // VÍDEO 3
         // ==========================================
         Video video3 = new Video("Todo atrapalhado", "Aventuras em Família", 1200);
-        video3.AdicionarComentario(new Comentario("Dermival", "To rindo até agora!"));
+        video3.AdicionarComentario(new Comentario("Dermival", "To rindo até agora! Eu sou mais ou menos desse jeito!"));
         video3.AdicionarComentario(new Comentario("Crotilde", "Não é possível uma pessoa ser tão atrapalhada!!!"));
         video3.AdicionarComentario(new Comentario("Clarisbina", "Caramba! Não sei como a pessoa saiu viva!"));
 
