@@ -8,7 +8,11 @@ public class Tarefa
         _nomeEstudante = nomeEstudante;
         _topico = topico;
     }
-
+    public string ObterTopico()
+    {
+        return _topico;
+    }
+    
     public string ObterNomeEstudante()
     {
         return _nomeEstudante;
