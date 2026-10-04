@@ -71,7 +71,7 @@ public class Program
         // ==========================================
         // VÍDEO 1
         // ==========================================
-        Video video1 = new Video("Que sabor", "Concy Pizzaz", 450);
+        Video video1 = new Video("Que sabor", "Concy Pizzas", 450);
         video1.AdicionarComentario(new Comentario("Godofredo", "Ótima apresentação das pizzas!"));
         video1.AdicionarComentario(new Comentario("Genoveva", "Deu água na boca só de ver as imagens!"));
         video1.AdicionarComentario(new Comentario("Epaminondas", "Preciso conferir pessoalmente! Que delícia!."));
@@ -82,7 +82,7 @@ public class Program
         Video video2 = new Video("Conhecendo a Europa", "Pelos quatro cantos do Mundo", 900);
         video2.AdicionarComentario(new Comentario("Gertrudes", "Que lugares incríveis!"));
         video2.AdicionarComentario(new Comentario("Rodolfo", "As dicas são maravilhosas!"));
-        video2.AdicionarComentario(new Comentario("Guglielmo", "Não iamginava que era assim!"));
+        video2.AdicionarComentario(new Comentario("Guglielmo", "Não imaginava que era assim!"));
 
         // ==========================================
         // VÍDEO 3
