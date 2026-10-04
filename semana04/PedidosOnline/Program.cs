@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 class Program
 {
-
-   
-        
+         
 
 class Cliente
 {
