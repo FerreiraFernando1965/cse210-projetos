@@ -1,65 +1,66 @@
 using System;
 using System.Collections.Generic;
+
 public class Comentario
 {
-    private string autor;
-    private string texto;
+    private string _nome;
+    private string _texto;
 
-    public Comentario(string autor, string texto)
+    public Comentario(string nome, string texto)
     {
-        this.autor = autor;
-        this.texto = texto;
+        _nome = nome;
+        _texto = texto;
     }
 
-    public string GetAutor()
+    public string GetNome()
     {
-        return autor;
+        return _nome;
     }
 
     public string GetTexto()
     {
-        return texto;
+        return _texto;
     }
 }
 
 public class Video
 {
-    private string titulo;
-    private string autor;
-    private int duracao;
-    private List<Comentario> comentarios;
+    private string _titulo;
+    private string _autor;
+    private int _duracao;
+    private List<Comentario> _comentarios;
 
     public Video(string titulo, string autor, int duracao)
     {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.duracao = duracao;
-        comentarios = new List<Comentario>();
-    }
-
-    public void AdicionarComentario(Comentario comentario)
-    {
-        comentarios.Add(comentario);
+        _titulo = titulo;
+        _autor = autor;
+        _duracao = duracao;
+        _comentarios = new List<Comentario>();
     }
 
     public string GetTitulo()
     {
-        return titulo;
+        return _titulo;
     }
 
     public string GetAutor()
     {
-        return autor;
+        return _autor;
     }
 
     public int GetDuracao()
     {
-        return duracao;
+        return _duracao;
+    }
+
+    public void AdicionarComentario(Comentario comentario)
+    {
+        _comentarios.Add(comentario);
     }
 
     public int NumComentario()
     {
-        return comentarios.Count;
+        return _comentarios.Count;
     }
 }
 
