@@ -3,17 +3,18 @@ using System.Collections.Generic;
 
 namespace Introspeccao
 {
-    public class Reflexao : Atividade // o sinal : garante a herança entre as classes
+    public class Reflexao
     {
-        private List<string> _reflexoes;
-        private List<string> _perguntas;
+        private  Atividade _atividade;
+        private  List<string> _reflexoes;
+        private  List<string> _perguntas;
 
-        public Reflexao() 
-            : base(
-                "Atividade de Reflexão", 
-                "Esta atividade ajudará você a refletir sobre momentos da sua vida e ajudará você a reconhecer o poder que você tem!"
-            )
+        public Reflexao()
         {
+            _atividade = new Atividade(
+                "Atividade de Reflexão",
+                "Esta atividade ajudará você a refletir sobre momentos da sua vida e ajudará você a reconhecer o poder que você tem!"
+            );
             _reflexoes = new List<string>
             {
                 "Pense em uma ocasião em que você defendeu outra pessoa.",
@@ -31,13 +32,12 @@ namespace Introspeccao
                 "O que tornou esse momento diferente de outras vezes em que você não teve tanto sucesso?",
                 "Qual é a sua coisa favorita sobre essa experiência?",
                 "O que você pode aprender com essa experiência que se aplica a outras situações?",
-               
             };
         }
 
-        public void ExecutarReflexao()
+        public void Executar()
         {
-            ExibirMensagemInicial();
+            _atividade.ExibirMensagemInicial();
 
             ExibirReflexoes();
 
@@ -45,12 +45,12 @@ namespace Introspeccao
             Console.ReadLine();
 
             Console.WriteLine("\nAgora reflita sobre cada uma das seguintes perguntas em relação a essa experiência:");
-            ExibirContagemRegressiva(5);
+            _atividade.ExibirContagemRegressiva(5);
             Console.Clear();
 
             ExibirPerguntas();
 
-            ExibirMensagemFinal();
+            _atividade.ExibirMensagemFinal();
         }
 
         public string ObterReflexoesAleatorias()
@@ -76,12 +76,12 @@ namespace Introspeccao
         public void ExibirPerguntas()
         {
             DateTime horaInicial = DateTime.Now;
-            DateTime horaFinal = horaInicial.AddSeconds(_duracao);
+            DateTime horaFinal = horaInicial.AddSeconds(_atividade.Duracao);
 
             while (DateTime.Now < horaFinal)
             {
                 Console.Write($"\n> {ObterPerguntasAleatorias()} ");
-                ExibirProgresso(5);
+                _atividade.ExibirProgresso(5);
             }
         }
     }

@@ -6,34 +6,39 @@ namespace Introspeccao
     {
         static void Main(string[] args)
         {
-            while (true)
+            string opcao = "";
+
+            while (opcao != "4")
             {
-                
-                
-                Console.WriteLine("1. Iniciar Atividade de Respiração");
+                Console.Clear();
+                Console.WriteLine("=== Menu de Actividades de Introspecção ===");
+                Console.WriteLine("1. Iniciar Respiração Guiada");
                 Console.WriteLine("2. Iniciar Atividade de Reflexão");
                 Console.WriteLine("3. Iniciar Atividade de Listagem");
                 Console.WriteLine("4. Sair");
-                Console.Write("Escolha uma opção: ");
+                Console.Write("\nEscolha uma opção: ");
 
-                string opcao = Console.ReadLine();
+                opcao = Console.ReadLine();
 
+                Console.Clear();
                 switch (opcao)
                 {
                     case "1":
                         Respiracao respiracao = new Respiracao();
-                        respiracao.ExecutarRespiracao();
+                        respiracao.Executar();
                         break;
+
                     case "2":
                         Reflexao reflexao = new Reflexao();
-                        reflexao.ExecutarReflexao();
+                        reflexao.Executar();
                         break;
+
                     case "3":
                         Listagem listagem = new Listagem();
-                        listagem.ExecutarListagem();
+                        listagem.Executar();
                         break;
-                    case "4":
-                        return;
+
+                   
                 }
             }
         }

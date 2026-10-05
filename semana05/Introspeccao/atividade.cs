@@ -6,9 +6,9 @@ namespace Introspeccao
 {
     public class Atividade
     {
-        protected string _nome;      //protected substitui private para permitir acesso das classes derivadas
-        protected string _descricao;
-        protected int _duracao;
+        private  string _nome;
+        private  string _descricao;
+        private int _duracao;
 
         public Atividade(string nome, string descricao)
         {
@@ -17,14 +17,15 @@ namespace Introspeccao
             _duracao = 0;
         }
 
+        public int Duracao => _duracao;
+
         public void ExibirMensagemInicial()
         {
-          
             Console.WriteLine($"=== Bem-vindo à atividade: {_nome} ===");
             Console.WriteLine(_descricao);
             Console.WriteLine();
             Console.Write("Por favor, digite a duração da atividade em segundos: ");
-            
+
             if (!int.TryParse(Console.ReadLine(), out _duracao) || _duracao <= 0)
             {
                 _duracao = 30;
@@ -43,7 +44,7 @@ namespace Introspeccao
 
         public void ExibirProgresso(int segundos)
         {
-            List<string> animacao = new List<string> { "|", "/", "-", "\\" }; // animação imitando ponteiro de relógio girando
+            List<string> animacao = new List<string> { "|", "/", "-", "\\" };
             DateTime horaInicial = DateTime.Now;
             DateTime horaFinal = horaInicial.AddSeconds(segundos);
 
@@ -67,7 +68,7 @@ namespace Introspeccao
                 Thread.Sleep(1000);
                 Console.Write("\b \b");
             }
-            Console.WriteLine();
+            
         }
     }
 }

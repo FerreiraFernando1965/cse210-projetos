@@ -2,33 +2,34 @@ using System;
 
 namespace Introspeccao
 {
-     public class Respiracao : Atividade   // o sinal : garante a herança entre as classes
+    public class Respiracao
     {
-        public Respiracao() 
-            : base(
-                "Respiração Guiada", 
-                "Esta atividade ajudará você a relaxar, inspirando e expirando lentamente. Limpe sua mente e concentre-se na sua respiração."
-            )
+        private  Atividade _atividade;
+
+        public Respiracao()
         {
+            _atividade = new Atividade(
+                "Respiração Guiada",
+                "Esta atividade ajudará você a relaxar, inspirando e expirando lentamente.");
         }
 
-        public void ExecutarRespiracao()
+        public void Executar()
         {
-            ExibirMensagemInicial();
+            _atividade.ExibirMensagemInicial();
 
             DateTime horaInicial = DateTime.Now;
-            DateTime horaFinal = horaInicial.AddSeconds(_duracao);
+            DateTime horaFinal = horaInicial.AddSeconds(_atividade.Duracao);
 
             while (DateTime.Now < horaFinal)
             {
                 Console.Write("\nInspire... ");
-                ExibirContagemRegressiva(4);
+                _atividade.ExibirContagemRegressiva(4);
 
                 Console.Write("Expire... ");
-                ExibirContagemRegressiva(6);
+                _atividade.ExibirContagemRegressiva(6);
             }
 
-            ExibirMensagemFinal();
+            _atividade.ExibirMensagemFinal();
         }
     }
 }
