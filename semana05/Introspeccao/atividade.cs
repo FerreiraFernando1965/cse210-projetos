@@ -6,8 +6,8 @@ namespace Introspeccao
 {
     public class Atividade
     {
-        private  string _nome;
-        private  string _descricao;
+        private string _nome;
+        private string _descricao;
         private int _duracao;
 
         public Atividade(string nome, string descricao)
@@ -15,6 +15,10 @@ namespace Introspeccao
             _nome = nome;
             _descricao = descricao;
             _duracao = 0;
+        }
+
+        public Atividade(string descricao) : this("Atividade", descricao)
+        {
         }
 
         public int Duracao => _duracao;
@@ -68,7 +72,6 @@ namespace Introspeccao
                 Thread.Sleep(1000);
                 Console.Write("\b \b");
             }
-            
         }
     }
 }

@@ -3,18 +3,13 @@ using System.Collections.Generic;
 
 namespace Introspeccao
 {
-    public class Listagem
+    public class Listagem : Atividade
     {
-        private  Atividade _atividade;
         private int _contador;
-        private  List<string> _perguntas;
+        private readonly List<string> _perguntas;
 
-        public Listagem()
+        public Listagem() : base("Atividade de Listagem", "Esta atividade ajudará na sua reflexão, listando o máximo de coisas em um período de tempo")
         {
-            _atividade = new Atividade(
-                "Atividade de Listagem",
-                "Esta atividade ajudará você a refletir sobre as coisas boas da sua vida, fazendo com que você liste o máximo de coisas que puder em um período de tempo."
-            );
             _contador = 0;
             _perguntas = new List<string>
             {
@@ -28,26 +23,26 @@ namespace Introspeccao
 
         public void Executar()
         {
-            _atividade.ExibirMensagemInicial();
+            ExibirMensagemInicial();
 
             ObterPerguntaAleatoria();
 
             Console.WriteLine("\nVocê pode começar a digitar em:");
-            _atividade.ExibirContagemRegressiva(5);
+            ExibirContagemRegressiva(5);
 
             List<string> itensDigitados = ObterListaDoUsuario();
             _contador = itensDigitados.Count;
 
             Console.WriteLine($"\nVocê listou {_contador} itens!");
 
-            _atividade.ExibirMensagemFinal();
+            ExibirMensagemFinal();
         }
 
         public void ObterPerguntaAleatoria()
         {
             Random random = new Random();
             int index = random.Next(_perguntas.Count);
-            Console.WriteLine($"\nConsidere a seguinte indicação:");
+            Console.WriteLine("\nConsidere a seguinte indicação:");
             Console.WriteLine($"--- {_perguntas[index]} ---");
         }
 
@@ -55,7 +50,7 @@ namespace Introspeccao
         {
             List<string> lista = new List<string>();
             DateTime horaInicial = DateTime.Now;
-            DateTime horaFinal = horaInicial.AddSeconds(_atividade.Duracao);
+            DateTime horaFinal = horaInicial.AddSeconds(Duracao);
 
             while (DateTime.Now < horaFinal)
             {

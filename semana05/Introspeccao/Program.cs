@@ -4,23 +4,54 @@ namespace Introspeccao
 {
     class Program
     {
-        static void Main(string[] args)
+        static void LimparTela()
         {
-            string opcao = "";
-
-            while (opcao != "4")
+            try
             {
                 Console.Clear();
-                Console.WriteLine("=== Menu de Actividades de Introspecção ===");
-                Console.WriteLine("1. Iniciar Respiração Guiada");
-                Console.WriteLine("2. Iniciar Atividade de Reflexão");
-                Console.WriteLine("3. Iniciar Atividade de Listagem");
+            }
+            catch (IOException)
+            {
+            }
+        }
+
+        static void Pausar()
+        {
+            if (Console.IsInputRedirected || Console.IsOutputRedirected)
+            {
+                return;
+            }
+
+            if (Environment.UserInteractive)
+            {
+                Console.WriteLine("Aperte qualquer tecla para voltar ao menu principal");
+                Console.ReadKey();
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            bool continuar = true;
+
+            while (continuar)
+            {
+                LimparTela();
+                Console.WriteLine("=== Programa de Introspecção ===");
+                Console.WriteLine("1.  Respiração Guiada");
+                Console.WriteLine("2.  Atividade de Reflexão");
+                Console.WriteLine("3.  Atividade de Listagem");
                 Console.WriteLine("4. Sair");
                 Console.Write("\nEscolha uma opção: ");
 
-                opcao = Console.ReadLine();
+                string opcao = Console.ReadLine();
 
-                Console.Clear();
+                if (string.IsNullOrWhiteSpace(opcao))
+                {
+                    break;
+                }
+
+                LimparTela();
+
                 switch (opcao)
                 {
                     case "1":
@@ -38,7 +69,19 @@ namespace Introspeccao
                         listagem.Executar();
                         break;
 
-                   
+                    case "4":
+                        continuar = false;
+                        Console.WriteLine("Obrigado por usar o programa.");
+                        break;
+
+                    default:
+                        Console.WriteLine("Opção inválida! Tente novamente.");
+                        break;
+                }
+
+                if (opcao == "1" || opcao == "2" || opcao == "3")
+                {
+                    Pausar();
                 }
             }
         }
