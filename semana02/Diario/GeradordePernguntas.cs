@@ -1,11 +1,4 @@
-public class GeradorDePerguntas
+namespace DiarioPessoal
 {
-    public List<string> _perguntas;
-
-    public string  ObterPerguntaAleatoria()
-    
-    {
-       return  " ";
-    }
-
+    // Este arquivo foi mantido vazio para evitar duplicação de classes com Program.cs.
 }

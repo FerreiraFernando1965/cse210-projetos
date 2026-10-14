@@ -1,0 +1,5 @@
+80
+MetaSimples|xadrez|treinar xadrez semanalmente|10|True
+MetaSimples|bicicleta|consertar a bicicleta|10|True
+MetaSimples|sotão|arrumar o sotão|50|True
+MetaEterna|leitura|ler as scrituras diariamente|10
